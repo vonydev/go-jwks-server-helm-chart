@@ -1,0 +1,86 @@
+{{/* code: language=goyaml */}}
+{{/*
+    Go JWKS server configuration env vars
+*/}}
+{{- define "zeus-svc-helper.go-jwks-server-config-env-vars" -}}
+{{- if .Values.dir_watch_interval }}
+- name: GO_JWKS_SERVER_DIR_WATCH_INTERVAL
+  value: "{{ .Values.dir_watch_interval }}"
+{{- end }}
+{{- if .Values.exit_on_error }}
+- name: GO_JWKS_SERVER_EXIT_ON_ERROR
+  value: "{{ .Values.exit_on_error }}"
+{{- end }}
+{{- if .Values.http_addr }}
+- name: GO_JWKS_SERVER_HTTP_ADDR
+  value: "{{ .Values.http_addr }}"
+{{- end }}
+{{- if .Values.http_cache_max_age }}
+- name: GO_JWKS_SERVER_HTTP_CACHE_MAX_AGE
+  value: "{{ .Values.http_cache_max_age }}"
+{{- end }}
+{{- if .Values.http_idle_timeout }}
+- name: GO_JWKS_SERVER_HTTP_IDLE_TIMEOUT
+  value: "{{ .Values.http_idle_timeout }}"
+{{- end }}
+{{- if .Values.http_keys_endpoint }}
+- name: GO_JWKS_SERVER_HTTP_KEYS_ENDPOINT
+  value: "{{ .Values.http_keys_endpoint }}"
+{{- end }}
+{{- if .Values.http_max_header_bytes }}
+- name: GO_JWKS_SERVER_HTTP_MAX_HEADER_BYTES
+  value: "{{ .Values.http_max_header_bytes }}"
+{{- end }}
+{{- if .Values.http_read_header_timeout }}
+- name: GO_JWKS_SERVER_HTTP_READ_HEADER_TIMEOUT
+  value: "{{ .Values.http_read_header_timeout }}"
+{{- end }}
+{{- if .Values.http_read_timeout }}
+- name: GO_JWKS_SERVER_HTTP_READ_TIMEOUT
+  value: "{{ .Values.http_read_timeout }}"
+{{- end }}
+{{- if .Values.http_shutdown_timeout }}
+- name: GO_JWKS_SERVER_HTTP_SHUTDOWN_TIMEOUT
+  value: "{{ .Values.http_shutdown_timeout }}"
+{{- end }}
+{{- if .Values.http_write_timeout }}
+- name: GO_JWKS_SERVER_HTTP_WRITE_TIMEOUT
+  value: "{{ .Values.http_write_timeout }}"
+{{- end }}
+{{- if .Values.key_dir }}
+- name: GO_JWKS_SERVER_KEY_DIR
+  value: "{{ .Values.key_dir }}"
+{{- end }}
+{{- if .Values.log_caller }}
+- name: GO_JWKS_SERVER_LOG_CALLER
+  value: "{{ .Values.log_caller }}"
+{{- end }}
+{{- if .Values.log_console }}
+- name: GO_JWKS_SERVER_LOG_CONSOLE
+  value: "{{ .Values.log_console }}"
+{{- end }}
+{{- if .Values.log_file }}
+- name: GO_JWKS_SERVER_LOG_FILE
+  value: "{{ .Values.log_file }}"
+{{- end }}
+{{- if .Values.log_level }}
+- name: GO_JWKS_SERVER_LOG_LEVEL
+  value: "{{ .Values.log_level }}"
+{{- end }}
+{{- if .Values.log_no_color }}
+- name: GO_JWKS_SERVER_LOG_NO_COLOR
+  value: "{{ .Values.log_no_color }}"
+{{- end }}
+{{- if .Values.log_stack }}
+- name: GO_JWKS_SERVER_LOG_STACK
+  value: "{{ .Values.log_stack }}"
+{{- end }}
+{{- if .Values.log_timestamp }}
+- name: GO_JWKS_SERVER_LOG_TIMESTAMP
+  value: "{{ .Values.log_timestamp }}"
+{{- end }}
+{{- if .Values.print_config }}
+- name: GO_JWKS_SERVER_PRINT_CONFIG
+  value: "{{ .Values.print_config }}"
+{{- end }}
+{{ end }}

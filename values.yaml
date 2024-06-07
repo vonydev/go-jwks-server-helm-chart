@@ -1,0 +1,144 @@
+# Default values for go-jwks-server.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# the interval to check the key directory for changes, set to 0 to disable watching
+# dir_watch_interval: "1s"
+
+# exit if loading keys fails
+# exit_on_error: "false"
+
+# the address to listen on
+# http_addr: ":8080"
+
+# set max-age in the cache-control header in seconds, set to 0 to disable caching
+# http_cache_max_age: "1h0m0s"
+
+# the maximum amount of time to wait for the next request when keep-alives are enabled
+# http_idle_timeout: "0s"
+
+# the endpoint to serve the keys
+# http_keys_endpoint: "/keys"
+
+# the maximum number of bytes the server will read parsing the request headers, including the request line
+# http_max_header_bytes: "1048576"
+
+# timeout for reading the request headers
+# http_read_header_timeout: "0s"
+
+# timeout for reading the entire request, including the body
+# http_read_timeout: "0s"
+
+# timeout for graceful shutdown of the server
+# http_shutdown_timeout: "5s"
+
+# timeout for writing the response
+# http_write_timeout: "0s"
+
+# the directory to load the keys from
+key_dir: "/jwks-public-keys"
+
+# show caller file and line number
+# log_caller: "true"
+
+# human friendly logs on console
+# log_console: "false"
+
+# log file, stdout or stderr
+# log_file: "stderr"
+
+# logging level (debug, info, warn, error, fatal, panic, no, disabled, trace)
+# log_level: "error"
+
+# do not show color on console
+# log_no_color: "false"
+
+# show stack info
+# log_stack: "false"
+
+# show timestamp
+# log_timestamp: "true"
+
+# print the configuration and exit
+# print_config: "false"
+
+envVars: []
+
+keysSecretName: jwks-public-keys
+keysSecretOptional: true
+
+replicaCount: 1
+
+image:
+  repository: ghcr.io/dimovnike/go-jwks-server
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
