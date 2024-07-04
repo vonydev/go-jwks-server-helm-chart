@@ -19,6 +19,10 @@
 - name: GO_JWKS_SERVER_HTTP_CACHE_MAX_AGE
   value: "{{ .Values.http_cache_max_age }}"
 {{- end }}
+{{- if .Values.http_enable }}
+- name: GO_JWKS_SERVER_HTTP_ENABLE
+  value: "{{ .Values.http_enable }}"
+{{- end }}
 {{- if .Values.http_idle_timeout }}
 - name: GO_JWKS_SERVER_HTTP_IDLE_TIMEOUT
   value: "{{ .Values.http_idle_timeout }}"
@@ -46,6 +50,46 @@
 {{- if .Values.http_write_timeout }}
 - name: GO_JWKS_SERVER_HTTP_WRITE_TIMEOUT
   value: "{{ .Values.http_write_timeout }}"
+{{- end }}
+{{- if .Values.https_addr }}
+- name: GO_JWKS_SERVER_HTTPS_ADDR
+  value: "{{ .Values.https_addr }}"
+{{- end }}
+{{- if .Values.https_cert_file }}
+- name: GO_JWKS_SERVER_HTTPS_CERT_FILE
+  value: "{{ .Values.https_cert_file }}"
+{{- end }}
+{{- if .Values.https_enable }}
+- name: GO_JWKS_SERVER_HTTPS_ENABLE
+  value: "{{ .Values.https_enable }}"
+{{- end }}
+{{- if .Values.https_idle_timeout }}
+- name: GO_JWKS_SERVER_HTTPS_IDLE_TIMEOUT
+  value: "{{ .Values.https_idle_timeout }}"
+{{- end }}
+{{- if .Values.https_key_file }}
+- name: GO_JWKS_SERVER_HTTPS_KEY_FILE
+  value: "{{ .Values.https_key_file }}"
+{{- end }}
+{{- if .Values.https_max_header_bytes }}
+- name: GO_JWKS_SERVER_HTTPS_MAX_HEADER_BYTES
+  value: "{{ .Values.https_max_header_bytes }}"
+{{- end }}
+{{- if .Values.https_read_header_timeout }}
+- name: GO_JWKS_SERVER_HTTPS_READ_HEADER_TIMEOUT
+  value: "{{ .Values.https_read_header_timeout }}"
+{{- end }}
+{{- if .Values.https_read_timeout }}
+- name: GO_JWKS_SERVER_HTTPS_READ_TIMEOUT
+  value: "{{ .Values.https_read_timeout }}"
+{{- end }}
+{{- if .Values.https_shutdown_timeout }}
+- name: GO_JWKS_SERVER_HTTPS_SHUTDOWN_TIMEOUT
+  value: "{{ .Values.https_shutdown_timeout }}"
+{{- end }}
+{{- if .Values.https_write_timeout }}
+- name: GO_JWKS_SERVER_HTTPS_WRITE_TIMEOUT
+  value: "{{ .Values.https_write_timeout }}"
 {{- end }}
 {{- if .Values.key_dir }}
 - name: GO_JWKS_SERVER_KEY_DIR

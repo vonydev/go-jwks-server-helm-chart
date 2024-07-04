@@ -14,6 +14,9 @@
 # set max-age in the cache-control header in seconds, set to 0 to disable caching
 # http_cache_max_age: "1h0m0s"
 
+# enable plain http server
+# http_enable: "true"
+
 # the maximum amount of time to wait for the next request when keep-alives are enabled
 # http_idle_timeout: "0s"
 
@@ -34,6 +37,36 @@
 
 # timeout for writing the response
 # http_write_timeout: "0s"
+
+# the address to listen on
+# https_addr: ":8443"
+
+# TLS cert file
+# https_cert_file: ""
+
+# enable https/TLS server
+# https_enable: "false"
+
+# the maximum amount of time to wait for the next request when keep-alives are enabled
+# https_idle_timeout: "0s"
+
+# TLS key file
+# https_key_file: ""
+
+# the maximum number of bytes the server will read parsing the request headers, including the request line
+# https_max_header_bytes: "1048576"
+
+# timeout for reading the request headers
+# https_read_header_timeout: "0s"
+
+# timeout for reading the entire request, including the body
+# https_read_timeout: "0s"
+
+# timeout for graceful shutdown of the server
+# https_shutdown_timeout: "5s"
+
+# timeout for writing the response
+# https_write_timeout: "0s"
 
 # the directory to load the keys from
 key_dir: "/jwks-public-keys"
