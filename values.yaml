@@ -103,7 +103,7 @@ keysSecretOptional: true
 replicaCount: 1
 
 image:
-  repository: ghcr.io/dimovnike/go-jwks-server
+  repository: dimovnike/go-jwks-server
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
